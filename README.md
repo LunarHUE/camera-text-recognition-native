@@ -1,17 +1,17 @@
 # react-native-vision-camera-text-recognition
 
 A plugin to Scanning Text,Translate using ML Kit Text Recognition and ML Kit Translation. With High Performance and many features.
-# 🚨 Required Modules
+# Required Modules
 react-native-vision-camera = 4.5.1 <br/>
 react-native-worklets-core = 1.3.3 <br/>
 
-## 💻 Installation
+## Installation
 
 ```sh
-npm install react-native-vision-camera-text-recognition
-yarn add react-native-vision-camera-text-recognition
+npm install @lunarhue/camera-text-recognition-native
+yarn add @lunarhue/camera-text-recognition-native
 ```
-## 👷Features
+## Features
     Easy To Use.
     Works Just Writing few lines of Code.
     Works With React Native Vision Camera.
@@ -27,7 +27,7 @@ yarn add react-native-vision-camera-text-recognition
 ```js
 import React, { useState } from 'react'
 import { useCameraDevice } from 'react-native-vision-camera'
-import { Camera } from 'react-native-vision-camera-text-recognition';
+import { Camera } from '@lunarhue/camera-text-recognition-native';
 
 function App (){
   const [data,setData] = useState(null)
@@ -61,7 +61,7 @@ export default App;
 ```js
 import React, { useState } from 'react'
 import { useCameraDevice } from 'react-native-vision-camera'
-import { Camera } from 'react-native-vision-camera-text-recognition';
+import { Camera } from '@lunarhue/camera-text-recognition-native';
 
 function App (){
   const [data,setData] = useState(null)
@@ -100,7 +100,7 @@ import {
   useCameraDevice,
   useFrameProcessor,
 } from "react-native-vision-camera";
-import { useTextRecognition } from "react-native-vision-camera-text-recognition";
+import { useTextRecognition } from "@lunarhue/camera-text-recognition-native";
 
 function App() {
   const device = useCameraDevice('back');
@@ -142,7 +142,7 @@ export default App;
 ##  Recognize By Photo 📸
 
 ```js
-import { PhotoRecognizer } from "react-native-vision-camera-text-recognition";
+import { PhotoRecognizer } from "@lunarhue/camera-text-recognition-native";
 
 const result = await PhotoRecognizer({
     uri:assets.uri,
@@ -166,7 +166,7 @@ console.log(result);
 
 
 ```js
-import { RemoveLanguageModel } from "react-native-vision-camera-text-recognition";
+import { RemoveLanguageModel } from "@lunarhue/camera-text-recognition-native";
 
 const bool = await RemoveLanguageModel("en")
 ```
