@@ -1,6 +1,6 @@
 {
   "name": "@lunarhue/camera-text-recognition-native",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A plugin to Scanning Text,Translate using ML Kit Text Recognition and ML Kit Translation. With High Performance and many features.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -31,7 +31,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
     "release": "release-it",
     "pack-zip": "npm-pack-zip"
 
