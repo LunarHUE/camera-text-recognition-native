@@ -51,7 +51,9 @@ class VisionCameraTextRecognitionPlugin(proxy: VisionCameraProxy, options: Map<S
         try {
             val text: Text = Tasks.await(task)
             if (text.text.isEmpty()) {
-                return WritableNativeMap().toHashMap()
+                data.putString("resultText", "")
+                data.putArray("blocks", WritableNativeArray())
+                return data.toHashMap()
             }
             data.putString("resultText", text.text)
             data.putArray("blocks", getBlocks(text.textBlocks))

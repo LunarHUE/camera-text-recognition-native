@@ -87,9 +87,9 @@ export type CameraTypes = {
 
 
 
-export type TextRecognitionPlugin = {
-  scanText: (frame: Frame) => Text[];
-};
+// export type TextRecognitionPlugin = {
+//   scanText: (frame: Frame) => Text[];
+// };
 export type TranslatorPlugin = {
   translate: (frame: Frame) => string;
 };
@@ -140,3 +140,51 @@ export type PhotoOptions = {
     | 'portraitUpsideDown'
     | 'landscapeLeft';
 };
+
+export type CornerPoint = { x: number; y: number };
+
+export type FrameBox = {
+  x: number; // center X
+  y: number; // center Y
+  width: number;
+  height: number;
+  boundingCenterX: number;
+  boundingCenterY: number;
+};
+
+export type ElementInfo = {
+  elementText: string;
+  elementCornerPoints: CornerPoint[] | null;
+  elementFrame: FrameBox;
+};
+
+export type LineInfo = {
+  lineText: string;
+  lineCornerPoints: CornerPoint[] | null;
+  lineFrame: FrameBox;
+  lineLanguages: string[]; // usually length 1
+  elements: ElementInfo[];
+};
+
+export type BlockInfo = {
+  blockText: string;
+  blockCornerPoints: CornerPoint[] | null;
+  blockFrame: FrameBox;
+  lines: LineInfo[];
+};
+
+export type OcrResult = {
+  resultText: string;
+  blocks: BlockInfo[];
+};
+
+// What plugin.call(frame) can produce based on Kotlin:
+// - an OCR result
+// - an empty object {} when no text
+// - null on error
+export type ScanTextReturn = OcrResult | {} | null;
+
+export type TextRecognitionPlugin = {
+  scanText: (frame: Frame) => ScanTextReturn;
+};
+
