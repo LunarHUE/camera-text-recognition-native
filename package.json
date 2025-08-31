@@ -1,6 +1,6 @@
 {
   "name": "@lunarhue/camera-text-recognition-native",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "A plugin to Scanning Text,Translate using ML Kit Text Recognition and ML Kit Translation. With High Performance and many features.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
