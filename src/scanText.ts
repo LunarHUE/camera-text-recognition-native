@@ -3,7 +3,7 @@ import type {
   Frame,
   TextRecognitionPlugin,
   TextRecognitionOptions,
-  Text,
+  // Text,
   ScanTextReturn,
 } from './types';
 

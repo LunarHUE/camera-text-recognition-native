@@ -7,13 +7,14 @@ import { createTextRecognitionPlugin } from './scanText';
 import { useRunOnJS } from 'react-native-worklets-core';
 import type {
   CameraTypes,
-  Text,
+  // Text,
   Frame,
   ReadonlyFrameProcessor,
   TextRecognitionPlugin,
   TranslatorPlugin,
   TextRecognitionOptions,
   TranslatorOptions,
+  ScanTextReturn,
 } from './types';
 import { createTranslatorPlugin } from './translateText';
 
@@ -44,7 +45,7 @@ export const Camera = forwardRef(function Camera(
   const frameProcessor: ReadonlyFrameProcessor = useFrameProcessor(
     (frame: Frame) => {
       'worklet';
-      const data: Text[] | string = plugin(frame);
+      const data: ScanTextReturn = plugin(frame);
       // @ts-ignore
       useWorklets(data);
     },
