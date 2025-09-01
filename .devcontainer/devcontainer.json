@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "Node.js & TypeScript",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+		"ghcr.io/devcontainers/features/nix:1": {
+			"extraNixConfig": "experimental-features = nix-command flakes, accept-flake-config = true"
+		}
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+
+	
+	"postCreateCommand": "sed -i 's/\r//g' .devcontainer/post-create.sh && bash .devcontainer/post-create.sh",
+	"postStartCommand": "sed -i 's/\r//g' .devcontainer/post-start.sh && bash .devcontainer/post-start.sh",
+
+	
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"zxh404.vscode-proto3",
+				"golang.go",
+				"bufbuild.vscode-buf",
+				"bradlc.vscode-tailwindcss",
+				"eamodio.gitlens",
+				"esbenp.prettier-vscode",
+				"TypeScriptTeam.native-preview",
+				"swiftlang.swift-vscode",
+				"mathiasfrohlich.Kotlin",
+				"jnoortheen.nix-ide"
+			]
+		}
+	},
+	
+	"containerEnv": {
+		"NIXPKGS_ALLOW_UNFREE": "1",
+		"ADB_SERVER_SOCKET": "tcp:host.docker.internal:5037"
+	},
+
+	"runArgs": ["--network=host"]
+}
